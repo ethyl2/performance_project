@@ -28,3 +28,9 @@ later changes to improve optimization.
   becomes <img src="img/projectwebperf.jpg">
   - <img src="https://lh5.ggpht.com/IKdCmTWn8a2nMhlwMYzryvzRN5CUZAOBr4tDrEAbszV7TIFe9pRAInA4kkYcgTXwrifJsBEsq1agTueuu-g=s100">
   becomes <img src="img/projectmobile.jpg">
+
+7. Minimize index.html
+
+The steps above increased the score to 93 for mobile and 95 for desktop.
+
+8. Resized pizzeria.jpg and compressed all of the images.
