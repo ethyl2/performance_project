@@ -34,3 +34,17 @@ later changes to improve optimization.
 The steps above increased the score to 93 for mobile and 95 for desktop.
 
 8. Resized pizzeria.jpg and compressed all of the images.
+
+##To Improve Performance of Pizza Site:
+
+1. In main.js, in the changePizzaSizes functions, pull the variables dx and newwidth
+out of the loop, since their values are the same for all of the generated pizza
+images. Inside, calculate those values once, for the document.querySelectorAll(".randomPizzaContainer")[0] and then start the loop.
+
+Before the change:
+95.0 ms when sliding from Med -> Small.
+101.8 ms when sliding from Small -> Large.
+
+After the change:
+5.9 ms when sliding from Med -> Small.
+10.3 ms when sliding from Small -> Large.
