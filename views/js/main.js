@@ -503,8 +503,9 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
- //(WC) Is there a faster way to access the DOM than querySelectorAll?
-  var items = document.querySelectorAll('.mover');
+ //getElementsByClassName is a faster way to access the DOM than querySelectorAll!
+  //Before: var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var phaseScroll = document.body.scrollTop / 1250;
   console.log(phaseScroll);
   for (var i = 0; i < items.length; i++) {

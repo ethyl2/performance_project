@@ -73,3 +73,15 @@
   ### After the change:
 
   Ave. scripting time to generate last 10 frames: 4.42 ms.
+
+3. In `updatePositions()`, use `getElementsByClassName` instead of `querySelectorAll`
+  because the former is faster. Here's an article that explains why: (https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/).
+  Basically, the object returned by gEBCN is a Live `NodeList` object, which can be created and returned faster by the browser, because they don’t have to have all of the information up front. Static `NodeLists` (which result from `querySelectorAll`) need to have all of their data from the start.
+
+  `var items = document.querySelectorAll('.mover');`
+
+  becomes
+
+  `var items = document.getElementsByClassName('mover');`
+
+  The ave.scripting time to generate last 10 frames decreased to 1.7 - 1.9 ms.
