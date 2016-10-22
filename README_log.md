@@ -1,10 +1,10 @@
-Beginning Page Speed Insights Scores:
+## Beginning Page Speed Insights Scores:
 
 27 Mobile
 
 29 Desktop
 
-Steps taken to optimize this project:
+## Steps taken to optimize this project:
 
 1. Add `media="print"` to `<link href="css/print.css" rel="stylesheet">`
 
@@ -18,11 +18,11 @@ Steps taken to optimize this project:
  and its corresponding use in the css:
   `body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }`
 
-The steps above increased the scores to 30.
+  The steps above increased the scores to 30.
 
 6. Change source for 3 images from an external link to my images folder. It might
-not make a big change, but it will be handy to have all my images together for
-later changes to improve optimization.
+  not make a big change, but it will be handy to have all my images together for
+  later changes to improve optimization.
   - `<img src="https://lh4.ggpht.com/kJEnfqhPvtm4m3EneSZ4fWYGS8lW4YNhEjk6zPkyrQaBUHc-2Y_ElDic99NHI0h-UBLXVbRCjFybFvrWxdk=s100">`
   becomes `<img src="img/project2048.jpg">`
 
@@ -33,23 +33,25 @@ later changes to improve optimization.
 
 7. Minimize index.html
 
-The steps above increased the score to 93 for mobile and 95 for desktop.
+  The steps above increased the score to 93 for mobile and 95 for desktop.
 
 8. Resize pizzeria.jpg and compressed all of the images. Didn't make a big difference.
 
-##To Improve Performance of Pizza Site:
+-------------------------------------------------------------------------------------------------------
+
+## To Improve Performance of Pizza Site:
 
 1. In main.js, in the `changePizzaSizes` function, pull the variables `dx` and `newwidth`
-out of the loop, since their values are the same for all of the generated pizza
-images. Inside, calculate those values once, for `document.querySelectorAll(".randomPizzaContainer")[0]` and then start the loop.
+  out of the loop, since their values are the same for all of the generated pizza
+  images. Inside, calculate those values once, for `document.querySelectorAll(".randomPizzaContainer")[0]` and then start the loop.
 
-  Before the change:
+  ### Before the change:
 
   95.0 ms when sliding from Med -> Small.
 
   101.8 ms when sliding from Small -> Large.
 
-  After the change:
+  ### After the change:
 
   5.9 ms when sliding from Med -> Small.
 
@@ -64,10 +66,10 @@ images. Inside, calculate those values once, for `document.querySelectorAll(".ra
 
   `var phase = Math.sin(phaseScroll + (i % 5));`
 
-  Before the change:
+  ### Before the change:
 
   Ave. scripting time to generate last 10 frames: 24.39 - 29.46 ms.
 
-  After the change:
+  ### After the change:
 
   Ave. scripting time to generate last 10 frames: 4.42 ms.
