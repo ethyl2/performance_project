@@ -503,9 +503,17 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+ //(WC) Is there a faster way to access the DOM than querySelectorAll?
   var items = document.querySelectorAll('.mover');
+  var phaseScroll = document.body.scrollTop / 1250;
+  console.log(phaseScroll);
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+
+    //(WC) What the exact values that phase and document.body.scrollTop give me per iteration?
+    //(WC) Phase calculation is dependent on modulo, so all the values returned will be
+    //between sin(0) and sin(4).
+    var phase = Math.sin(phaseScroll + (i % 5));
+    //console.log(phase, document.body.scrollTop);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 

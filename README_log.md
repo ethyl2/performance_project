@@ -39,12 +39,27 @@ The steps above increased the score to 93 for mobile and 95 for desktop.
 
 1. In main.js, in the changePizzaSizes functions, pull the variables dx and newwidth
 out of the loop, since their values are the same for all of the generated pizza
-images. Inside, calculate those values once, for the document.querySelectorAll(".randomPizzaContainer")[0] and then start the loop.
+images. Inside, calculate those values once, for `document.querySelectorAll(".randomPizzaContainer")[0]` and then start the loop.
 
-Before the change:
-95.0 ms when sliding from Med -> Small.
-101.8 ms when sliding from Small -> Large.
+  Before the change:
+  95.0 ms when sliding from Med -> Small.
+  101.8 ms when sliding from Small -> Large.
 
-After the change:
-5.9 ms when sliding from Med -> Small.
-10.3 ms when sliding from Small -> Large.
+  After the change:
+  5.9 ms when sliding from Med -> Small.
+  10.3 ms when sliding from Small -> Large.
+
+2. In main.js, in updatePositions(), take the following calculation out of the loop.
+Calculate it once instead and assign it a variable.
+
+```var phaseScroll = document.body.scrollTop / 1250;
+```
+
+Then use that variable to calculate the phase variable:
+
+```var phase = Math.sin(phaseScroll + (i % 5));
+```
+  Before the change:
+  Ave. scripting time to generate last 10 frames: 24.39 - 29.46 ms.
+  After the change:
+  Ave. scripting time to generate last 10 frames: 4.42 ms.
