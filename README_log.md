@@ -106,6 +106,18 @@
 5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the amount
   of generated animated pizzas from 200 to 50. This is done by changing the upper limit
   for `i`:
+
   `for (var i = 0; i < 50; i++)`
 
   The ave. scripting time decreased to about 0.5 ms.
+
+6. Back in `changePizzaSizes()`, change all `querySelector` and `querySelectorAll` to
+  `getElementById` and `getElementsByClassName`.
+
+  The time differences I measured:
+
+  Before: 12.3 ms for medium -> small
+          8.1 ms for small -> large
+
+  After: 2.8 ms for medium -> small
+          1.7 ms for small -> large

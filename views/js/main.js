@@ -404,14 +404,18 @@ var resizePizzas = function(size) {
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
+    //For faster performance, I changed querySelector to getElementById
     switch(size) {
       case "1":
+        //document.getElementById("pizzaSize").innerHTML = "Small";
         document.querySelector("#pizzaSize").innerHTML = "Small";
         return;
       case "2":
+        //document.getElementById("pizzaSize").innerHTML = "Medium";
         document.querySelector("#pizzaSize").innerHTML = "Medium";
         return;
       case "3":
+        //document.getElementById("pizzaSize").innerHTML = "Large";
         document.querySelector("#pizzaSize").innerHTML = "Large";
         return;
       default:
@@ -424,7 +428,8 @@ var resizePizzas = function(size) {
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    //var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+    var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
 
     // Changes the slider value to a percent width
@@ -449,12 +454,16 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[0], size);
-    var newwidth = (document.querySelectorAll(".randomPizzaContainer")[0].offsetWidth + dx) + 'px';
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[0], size);
+    dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
+    //var newwidth = (document.querySelectorAll(".randomPizzaContainer")[0].offsetWidth + dx) + 'px';
+    var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
+    //for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    for (var i = 0; i < document.getElementsByClassName("randomPizzaContainer").length; i++) {
       //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       //var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+      //document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+      document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
@@ -542,7 +551,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   // It's not necessary to create 200 pizzas. Even zooming out quite a bit, only
   // 25 pizzas are on a screen at a time. So we can decrease the number to 50.
-  // Old line of code: for (var i = 0; i < 200; i++) 
+  // Old line of code: for (var i = 0; i < 200; i++)
   for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
