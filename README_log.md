@@ -75,7 +75,7 @@
   Ave. scripting time to generate last 10 frames: 4.42 ms.
 
 3. In `updatePositions()`, use `getElementsByClassName` instead of `querySelectorAll`
-  because the former is faster. Here's an article that explains why: (https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/).
+  because the former is faster. Here's an article that explains why: https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/.
   Basically, the object returned by gEBCN is a Live `NodeList` object, which can be created and returned faster by the browser, because they don’t have to have all of the information up front. Static `NodeLists` (which result from `querySelectorAll`) need to have all of their data from the start.
 
   `var items = document.querySelectorAll('.mover');`
@@ -84,4 +84,20 @@
 
   `var items = document.getElementsByClassName('mover');`
 
-  The ave.scripting time to generate last 10 frames decreased to 1.7 - 1.9 ms.
+  The ave. scripting time to generate last 10 frames decreased to 1.7 - 1.9 ms.
+
+4. In `updatePositions()`, pull another calculation out of the loop.
+  Because phase calculation is dependent on modulo, all the values returned will be
+  only 5 values, between sin(phaseScroll + 0) and sin(phaseScroll + 4).
+  Before the loop starts, have the values calculated and inserted into a `phaseArray`
+  array.
+
+  ```for (var i = 0; i < 5; i++) {
+    phaseArray[i] = Math.sin(phaseScroll + i);
+  }
+  ```
+  And then use `phaseArray` inside the main loop:
+
+  `var phase = phaseArray[i % 5];`
+
+  The ave. scripting time decreased by about 0.1 ms, with a range of 1.3 - 1.6 ms.

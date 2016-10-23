@@ -507,14 +507,19 @@ function updatePositions() {
   //Before: var items = document.querySelectorAll('.mover');
   var items = document.getElementsByClassName('mover');
   var phaseScroll = document.body.scrollTop / 1250;
-  console.log(phaseScroll);
-  for (var i = 0; i < items.length; i++) {
 
-    //(WC) What the exact values that phase and document.body.scrollTop give me per iteration?
-    //(WC) Phase calculation is dependent on modulo, so all the values returned will be
-    //between sin(0) and sin(4).
-    var phase = Math.sin(phaseScroll + (i % 5));
-    //console.log(phase, document.body.scrollTop);
+  var phaseArray = [];
+  // Phase calculation is dependent on modulo, so all the values returned will be
+  // only 5 values, between sin(phaseScroll + 0) and sin(phaseScroll + 4).
+  // So we can calculate them now, before the main loop.
+  for (var i = 0; i < 5; i++) {
+    phaseArray[i] = Math.sin(phaseScroll + i);
+  }
+
+  for (var i = 0; i < items.length; i++) {
+    // The line below is the old calculation:
+    //var phase = Math.sin(phaseScroll + (i % 5));
+    var phase = phaseArray[i % 5];
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
