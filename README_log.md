@@ -92,7 +92,8 @@
   Before the loop starts, have the values calculated and inserted into a `phaseArray`
   array.
 
-  ```for (var i = 0; i < 5; i++) {
+  ```
+  for (var i = 0; i < 5; i++) {
     phaseArray[i] = Math.sin(phaseScroll + i);
   }
   ```
@@ -101,3 +102,10 @@
   `var phase = phaseArray[i % 5];`
 
   The ave. scripting time decreased by about 0.1 ms, with a range of 1.3 - 1.6 ms.
+
+5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the amount
+  of generated animated pizzas from 200 to 50. This is done by changing the upper limit
+  for `i`:
+  `for (var i = 0; i < 50; i++)`
+
+  The ave. scripting time decreased to about 0.5 ms.
