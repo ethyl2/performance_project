@@ -1,8 +1,8 @@
 ## Beginning Page Speed Insights Scores:
 
-_27_ Mobile
+__27__Mobile
 
-_29_ Desktop
+__29__ Desktop
 
 ## Steps taken to optimize this project:
 
@@ -20,7 +20,7 @@ _29_ Desktop
 
   #### Effect:
 
-  The steps above increased the scores to _30_.
+  The steps above increased the scores to __30__.
 
 6. Change source for 3 images from an external link to my images folder. It might
   not make a big change, but it will be handy to have all my images together for
@@ -37,7 +37,7 @@ _29_ Desktop
 
   #### Effect:
 
-  The steps above increased the score to _93_ for mobile and _95_ for desktop.
+  The steps above increased the score to __93__ for mobile and __95__ for desktop.
 
 8. Resize `pizzeria.jpg` and compressed all of the images.
 
@@ -49,9 +49,9 @@ _29_ Desktop
 
 ## Final Page Speed Insights Scores:
 
-  _93_ Mobile
+  __93__ Mobile
 
-  _95_ Desktop
+  __95__ Desktop
 
 -------------------------------------------------------------------------------------------------------
 
@@ -63,15 +63,15 @@ _29_ Desktop
 
   #### Before the change:
 
-  _95.0 ms_ when sliding from Med -> Small.
+  __95.0 ms__ when sliding from Med -> Small.
 
-  _101.8 ms_ when sliding from Small -> Large.
+  __101.8 ms__ when sliding from Small -> Large.
 
   #### After the change:
 
-  _5.9 ms_ when sliding from Med -> Small.
+  __5.9 ms__ when sliding from Med -> Small.
 
-  _10.3 ms_ when sliding from Small -> Large.
+  __10.3 ms__ when sliding from Small -> Large.
 
 2. In main.js, in `updatePositions()`, take the following calculation out of the loop.
   Calculate it once instead and assign it a variable.
@@ -84,11 +84,11 @@ _29_ Desktop
 
   #### Before the change:
 
-  Ave. scripting time to generate last 10 frames: _24.39 - 29.46_ ms.
+  Ave. scripting time to generate last 10 frames: __24.39 - 29.46__ ms.
 
   #### After the change:
 
-  Ave. scripting time to generate last 10 frames: _4.42_ ms.
+  Ave. scripting time to generate last 10 frames: __4.42__ ms.
 
 3. In `updatePositions()`, use `getElementsByClassName` instead of
   `querySelectorAll` because the former is faster. Here's an article that
@@ -107,7 +107,7 @@ _29_ Desktop
 
   #### Effect:
 
-  The ave. scripting time to generate last 10 frames decreased to _1.7 - 1.9_ ms.
+  The ave. scripting time to generate last 10 frames decreased to __1.7 - 1.9__ ms.
 
 4. In `updatePositions()`, pull another calculation out of the loop.
   Because phase calculation is dependent on modulo, all the values returned will be
@@ -120,14 +120,15 @@ _29_ Desktop
     phaseArray[i] = Math.sin(phaseScroll + i);
   }
   ```
+
   And then use `phaseArray` inside the main loop:
 
   `var phase = phaseArray[i % 5];`
 
   #### Effect:
 
-  The ave. scripting time decreased by about _0.1 ms_, with a range of _1.3
-  - 1.6_ ms.
+  The ave. scripting time decreased by about __0.1 ms__, with a range of __1.3
+  - 1.6__ ms.
 
 5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the
   amount of generated animated pizzas from 200 to 50. Even with zooming out the
@@ -140,7 +141,7 @@ _29_ Desktop
 
   #### Effect:
 
-  The ave. scripting time decreased to about _0.5 ms_.
+  The ave. scripting time decreased to about __0.5 ms__.
 
 6. Back in `changePizzaSizes()`, change all `querySelector` and `querySelectorAll`
   to `getElementById` and `getElementsByClassName`.
@@ -149,15 +150,15 @@ _29_ Desktop
 
   #### Before the change:
 
-  _12.3 ms_ when sliding from Medium -> Small.
+  __12.3 ms__ when sliding from Medium -> Small.
 
-  _8.1 ms_ when sliding from Small -> Large.
+  __8.1 ms__ when sliding from Small -> Large.
 
   #### After the change:
 
-  _2.8 ms_ when sliding from Medium -> Small.
+  __2.8 ms__ when sliding from Medium -> Small.
 
-  _1.7 ms_ when sliding from Small -> Large.
+  __1.7 ms__ when sliding from Small -> Large.
 
 7. Also, in `changePizzaSizes()`, add the variable `containers`, since its value
   is used several times in the function.
@@ -166,7 +167,7 @@ _29_ Desktop
 
   #### Effect:
 
-  The times decreased by about _0.1 ms_.
+  The times decreased by about __0.1 ms__.
 
 8. Inside the scroll event listener, put the `updatePositions` function inside a
   `requestAnimationFrame()`.
