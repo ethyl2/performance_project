@@ -454,15 +454,14 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[0], size);
-    dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
-    //var newwidth = (document.querySelectorAll(".randomPizzaContainer")[0].offsetWidth + dx) + 'px';
-    var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
-    //for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-    for (var i = 0; i < document.getElementsByClassName("randomPizzaContainer").length; i++) {
-      //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      //var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      //document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    // Since the value of containers is used several times, let's make it a variable.
+    // Also, the original queries used querySelectorAll, but now this function uses
+    // getElementsByClassName because it is faster.
+    var containers = document.getElementsByClassName("randomPizzaContainer");
+    var dx = determineDx(containers[0], size);
+    var newwidth = (containers[0].offsetWidth + dx) + 'px';
+
+    for (var i = 0; i < containers.length; i++) {
       document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
   }
