@@ -31,11 +31,19 @@
   - `<img src="https://lh5.ggpht.com/IKdCmTWn8a2nMhlwMYzryvzRN5CUZAOBr4tDrEAbszV7TIFe9pRAInA4kkYcgTXwrifJsBEsq1agTueuu-g=s100">`
   becomes `<img src="img/projectmobile.jpg">`
 
-7. Minimize index.html
+7. Minimize `index.html`.
 
   The steps above increased the score to 93 for mobile and 95 for desktop.
 
-8. Resize pizzeria.jpg and compressed all of the images. Didn't make a big difference.
+8. Resize `pizzeria.jpg` and compressed all of the images. In this case, it didn't
+  make a measurable difference, that is, the scores didn't change, but it is
+  good practice to resize and compress images.
+
+## Final Page Speed Insights Scores:
+
+  93 Mobile
+
+  95 Desktop
 
 -------------------------------------------------------------------------------------------------------
 
@@ -117,9 +125,11 @@
   The time differences I measured:
 
   Before: 12.3 ms for medium -> small
+
           8.1 ms for small -> large
 
   After: 2.8 ms for medium -> small
+
           1.7 ms for small -> large
 
 7. Also, in `changePizzaSizes()`, add the variable `containers`, since its value is used
