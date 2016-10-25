@@ -122,7 +122,7 @@
   After: 2.8 ms for medium -> small
           1.7 ms for small -> large
 
-7. Also, in `changePizzaSlices`, add the variable `containers`, since its value is used
+7. Also, in `changePizzaSizes()`, add the variable `containers`, since its value is used
   several times in the function.
 
   `var containers = document.getElementsByClassName("randomPizzaContainer");`
