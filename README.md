@@ -1,40 +1,66 @@
-## Website Performance Optimization portfolio project
+## Website Performance Optimization Portfolio Project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+The challenge for this project was to optimize this online portfolio for speed!
+This website had optimization and performance-related issues. By applying the
+techniques from the
+[Critical Rendering Path course](https://www.udacity.com/course/ud884),
+we needed to optimize the critical rendering path and make this page render as
+quickly as possible. The goal is to achieve a target PageSpeed score and have it
+ run at 60 frames per second.
 
-To get started, check out the repository and inspect the code.
+----------------------------------------------------------------------------------
 
 ### Getting started
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+##### Live
 
-Some useful tips to help you get started:
+Point your browser to https://ethyl2.github.io/performance-project
+
+##### Locally
 
 1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+
+  ```
+  $> git clone https://github.com/ethyl2/performance-project
+  ````
+
+2. You can run a local server:
 
   ```bash
   $> cd /path/to/your-project-folder
   $> python -m SimpleHTTPServer 8080
   ```
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+  Open a browser and visit localhost:8080.
+
+  Alternatively:
+
+  ```bash
+  $> open "http://localhost:8080"
+  ```
+
+3. Use [ngrok](https://ngrok.com/) to make your local server accessible remotely.
 
   ``` bash
   $> cd /path/to/your-project-folder
   $> ./ngrok http 8080
   ```
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+4. Copy the public URL ngrok gives you and try running it through PageSpeed Insights.
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+---------------------------------------------------------------------------------------------
 
-####Part 2: Optimize Frames per Second in pizza.html
+### Optimization
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+See [this file](README_log.md) for detailed steps on steps taken to optimize this site.
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+---------------------------------------------------------------------------------------------
+
+### Resources
+
+FPS Counter/HUD Display in Chrome developer tools: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+
+[More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
 
 ### Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
@@ -42,7 +68,7 @@ You might find the FPS Counter/HUD Display useful in Chrome developer tools desc
 * [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
 * [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
 * [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
+* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api").
 * <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
 * <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
 * <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
