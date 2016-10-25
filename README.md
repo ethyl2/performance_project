@@ -7,7 +7,7 @@ techniques from the
 we needed to optimize the critical rendering path and make this page render as
 quickly as possible.
 
-### The goals:
+#### The goals:
 
 1.  Have `index.html` achieve a target `PageSpeed` score of at least 90 for
   Mobile and Desktop.
@@ -19,18 +19,18 @@ quickly as possible.
 
 ----------------------------------------------------------------------------------
 
-## Getting started
+### Getting started
 
-### Live
+#### Live
 
 Point your browser to https://ethyl2.github.io/performance-project
 
-### Locally
+#### Locally
 
 1. Check out the repository:
 
   ```bash
-  $> git clone https://github.com/ethyl2/performance-project
+  $> git clone https://github.com/ethyl2/performance_project
   ````
 
 2. You can run a local server:
@@ -59,13 +59,13 @@ Point your browser to https://ethyl2.github.io/performance-project
 
 ---------------------------------------------------------------------------------------------
 
-## Optimization
+### Optimization
 
 See [this file](README_log.md) for detailed steps on steps taken to optimize this site.
 
 ---------------------------------------------------------------------------------------------
 
-## Resources
+### Resources
 
 FPS Counter/HUD Display in Chrome developer tools: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
