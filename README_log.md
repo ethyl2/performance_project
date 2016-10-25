@@ -127,8 +127,7 @@ __29__ Desktop
 
   #### Effect:
 
-  The ave. scripting time decreased by about __0.1 ms__, with a range of __1.3
-  - 1.6 ms__ .
+  The ave. scripting time decreased by about __0.1 ms__ , with a range of __1.3 - 1.6 ms__ .
 
 5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the
   amount of generated animated pizzas from 200 to 50. Even with zooming out the
