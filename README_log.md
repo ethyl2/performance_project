@@ -1,8 +1,8 @@
 ## Beginning Page Speed Insights Scores:
 
-27 Mobile
+_27_ Mobile
 
-29 Desktop
+_29_ Desktop
 
 ## Steps taken to optimize this project:
 
@@ -18,7 +18,9 @@
  and its corresponding use in the css:
   `body, button, input, select, textarea { font-family: 'Open Sans', sans-serif; color: #333; }`
 
-  The steps above increased the scores to 30.
+  #### Effect:
+
+  The steps above increased the scores to _30_.
 
 6. Change source for 3 images from an external link to my images folder. It might
   not make a big change, but it will be handy to have all my images together for
@@ -33,11 +35,13 @@
 
 7. Minimize `index.html`.
 
-  The steps above increased the score to 93 for mobile and 95 for desktop.
+  #### Effect:
+
+  The steps above increased the score to _93_ for mobile and _95_ for desktop.
 
 8. Resize `pizzeria.jpg` and compressed all of the images.
 
-  #### Effect: 
+  #### Effect:
 
   In this case, it didn't
   make a measurable difference, that is, the scores didn't change, but it is
@@ -45,9 +49,9 @@
 
 ## Final Page Speed Insights Scores:
 
-  93 Mobile
+  _93_ Mobile
 
-  95 Desktop
+  _95_ Desktop
 
 -------------------------------------------------------------------------------------------------------
 
@@ -59,15 +63,15 @@
 
   #### Before the change:
 
-  95.0 ms when sliding from Med -> Small.
+  _95.0 ms_ when sliding from Med -> Small.
 
-  101.8 ms when sliding from Small -> Large.
+  _101.8 ms_ when sliding from Small -> Large.
 
   #### After the change:
 
-  5.9 ms when sliding from Med -> Small.
+  _5.9 ms_ when sliding from Med -> Small.
 
-  10.3 ms when sliding from Small -> Large.
+  _10.3 ms_ when sliding from Small -> Large.
 
 2. In main.js, in `updatePositions()`, take the following calculation out of the loop.
   Calculate it once instead and assign it a variable.
@@ -80,15 +84,20 @@
 
   #### Before the change:
 
-  Ave. scripting time to generate last 10 frames: 24.39 - 29.46 ms.
+  Ave. scripting time to generate last 10 frames: _24.39 - 29.46_ ms.
 
   #### After the change:
 
-  Ave. scripting time to generate last 10 frames: 4.42 ms.
+  Ave. scripting time to generate last 10 frames: _4.42_ ms.
 
-3. In `updatePositions()`, use `getElementsByClassName` instead of `querySelectorAll`
-  because the former is faster. Here's an article that explains why: https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/.
-  Basically, the object returned by gEBCN is a Live `NodeList` object, which can be created and returned faster by the browser, because they don’t have to have all of the information up front. Static `NodeLists` (which result from `querySelectorAll`) need to have all of their data from the start.
+3. In `updatePositions()`, use `getElementsByClassName` instead of
+  `querySelectorAll` because the former is faster. Here's an article that
+  explains why:
+  https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/.
+  Basically, the object returned by gEBCN is a Live `NodeList` object, which can
+  be created and returned faster by the browser, because they don’t have to have
+  all of the information up front. Static `NodeLists` (which result from
+  `querySelectorAll`) need to have all of their data from the start.
 
   `var items = document.querySelectorAll('.mover');`
 
@@ -98,7 +107,7 @@
 
   #### Effect:
 
-  The ave. scripting time to generate last 10 frames decreased to 1.7 - 1.9 ms.
+  The ave. scripting time to generate last 10 frames decreased to _1.7 - 1.9_ ms.
 
 4. In `updatePositions()`, pull another calculation out of the loop.
   Because phase calculation is dependent on modulo, all the values returned will be
@@ -117,45 +126,50 @@
 
   #### Effect:
 
-  The ave. scripting time decreased by about 0.1 ms, with a range of 1.3 - 1.6 ms.
+  The ave. scripting time decreased by about _0.1 ms_, with a range of _1.3
+  - 1.6_ ms.
 
-5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the amount
-  of generated animated pizzas from 200 to 50. This is done by changing the upper limit
-  for `i`:
+5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the
+  amount of generated animated pizzas from 200 to 50. Even with zooming out the
+  page, only 25 pizzas show on the page at a time, so 200 seems unnecessary.
+  Even 50 might be more than needed, but should be a good amount, just in case.
+
+  Change the upper limit for `i`:
 
   `for (var i = 0; i < 50; i++)`
 
   #### Effect:
 
-  The ave. scripting time decreased to about 0.5 ms.
+  The ave. scripting time decreased to about _0.5 ms_.
 
-6. Back in `changePizzaSizes()`, change all `querySelector` and `querySelectorAll` to
-  `getElementById` and `getElementsByClassName`.
+6. Back in `changePizzaSizes()`, change all `querySelector` and `querySelectorAll`
+  to `getElementById` and `getElementsByClassName`.
 
   The time differences I measured:
 
   #### Before the change:
 
-  12.3 ms when sliding from Medium -> Small.
+  _12.3 ms_ when sliding from Medium -> Small.
 
-  8.1 ms when sliding from Small -> Large.
+  _8.1 ms_ when sliding from Small -> Large.
 
   #### After the change:
 
-  2.8 ms when sliding from Medium -> Small.
+  _2.8 ms_ when sliding from Medium -> Small.
 
-  1.7 ms when sliding from Small -> Large.
+  _1.7 ms_ when sliding from Small -> Large.
 
-7. Also, in `changePizzaSizes()`, add the variable `containers`, since its value is used
-  several times in the function.
+7. Also, in `changePizzaSizes()`, add the variable `containers`, since its value
+  is used several times in the function.
 
   `var containers = document.getElementsByClassName("randomPizzaContainer");`
 
   #### Effect:
 
-  The times increased by about 0.1 ms.
+  The times decreased by about _0.1 ms_.
 
-8. Inside the scroll event listener, put the `updatePositions` function inside a `requestAnimationFrame()`.
+8. Inside the scroll event listener, put the `updatePositions` function inside a
+  `requestAnimationFrame()`.
 
   `window.addEventListener('scroll', function() {
       window.requestAnimationFrame(updatePositions);
