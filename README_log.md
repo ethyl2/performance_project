@@ -128,3 +128,13 @@
   `var containers = document.getElementsByClassName("randomPizzaContainer");`
 
   The times increased by about 0.1 ms.
+
+8. Inside the scroll event listener, put the `updatePositions` function inside a `requestAnimationFrame()`.
+
+  `window.addEventListener('scroll', function() {
+      window.requestAnimationFrame(updatePositions);
+  });`
+
+  This didn't really make a noticeable effect on the timing, but it is considered
+  good coding practice, since `updatePositions()` creates a visible change to the
+  page.
