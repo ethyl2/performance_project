@@ -35,7 +35,11 @@
 
   The steps above increased the score to 93 for mobile and 95 for desktop.
 
-8. Resize `pizzeria.jpg` and compressed all of the images. In this case, it didn't
+8. Resize `pizzeria.jpg` and compressed all of the images.
+
+  #### Effect: 
+
+  In this case, it didn't
   make a measurable difference, that is, the scores didn't change, but it is
   good practice to resize and compress images.
 
@@ -53,13 +57,13 @@
   out of the loop, since their values are the same for all of the generated pizza
   images. Inside, calculate those values once, for `document.querySelectorAll(".randomPizzaContainer")[0]` and then start the loop.
 
-  ### Before the change:
+  #### Before the change:
 
   95.0 ms when sliding from Med -> Small.
 
   101.8 ms when sliding from Small -> Large.
 
-  ### After the change:
+  #### After the change:
 
   5.9 ms when sliding from Med -> Small.
 
@@ -74,11 +78,11 @@
 
   `var phase = Math.sin(phaseScroll + (i % 5));`
 
-  ### Before the change:
+  #### Before the change:
 
   Ave. scripting time to generate last 10 frames: 24.39 - 29.46 ms.
 
-  ### After the change:
+  #### After the change:
 
   Ave. scripting time to generate last 10 frames: 4.42 ms.
 
@@ -91,6 +95,8 @@
   becomes
 
   `var items = document.getElementsByClassName('mover');`
+
+  #### Effect:
 
   The ave. scripting time to generate last 10 frames decreased to 1.7 - 1.9 ms.
 
@@ -109,6 +115,8 @@
 
   `var phase = phaseArray[i % 5];`
 
+  #### Effect:
+
   The ave. scripting time decreased by about 0.1 ms, with a range of 1.3 - 1.6 ms.
 
 5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the amount
@@ -117,6 +125,8 @@
 
   `for (var i = 0; i < 50; i++)`
 
+  #### Effect:
+
   The ave. scripting time decreased to about 0.5 ms.
 
 6. Back in `changePizzaSizes()`, change all `querySelector` and `querySelectorAll` to
@@ -124,18 +134,24 @@
 
   The time differences I measured:
 
-  Before: 12.3 ms for medium -> small
+  #### Before the change:
 
-          8.1 ms for small -> large
+  12.3 ms when sliding from Medium -> Small.
 
-  After: 2.8 ms for medium -> small
+  8.1 ms when sliding from Small -> Large.
 
-          1.7 ms for small -> large
+  #### After the change:
+
+  2.8 ms when sliding from Medium -> Small.
+
+  1.7 ms when sliding from Small -> Large.
 
 7. Also, in `changePizzaSizes()`, add the variable `containers`, since its value is used
   several times in the function.
 
   `var containers = document.getElementsByClassName("randomPizzaContainer");`
+
+  #### Effect:
 
   The times increased by about 0.1 ms.
 
@@ -144,6 +160,8 @@
   `window.addEventListener('scroll', function() {
       window.requestAnimationFrame(updatePositions);
   });`
+
+  #### Effect:
 
   This didn't really make a noticeable effect on the timing, but it is considered
   good coding practice, since `updatePositions()` creates a visible change to the
