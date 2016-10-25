@@ -1,6 +1,6 @@
 ## Beginning Page Speed Insights Scores:
 
-__27__Mobile
+__27__ Mobile
 
 __29__ Desktop
 
@@ -84,11 +84,11 @@ __29__ Desktop
 
   #### Before the change:
 
-  Ave. scripting time to generate last 10 frames: __24.39 - 29.46__ ms.
+  Ave. scripting time to generate last 10 frames: __24.39 - 29.46 ms__ .
 
   #### After the change:
 
-  Ave. scripting time to generate last 10 frames: __4.42__ ms.
+  Ave. scripting time to generate last 10 frames: __4.42 ms__ .
 
 3. In `updatePositions()`, use `getElementsByClassName` instead of
   `querySelectorAll` because the former is faster. Here's an article that
@@ -107,7 +107,7 @@ __29__ Desktop
 
   #### Effect:
 
-  The ave. scripting time to generate last 10 frames decreased to __1.7 - 1.9__ ms.
+  The ave. scripting time to generate last 10 frames decreased to __1.7 - 1.9 ms__ .
 
 4. In `updatePositions()`, pull another calculation out of the loop.
   Because phase calculation is dependent on modulo, all the values returned will be
@@ -128,7 +128,7 @@ __29__ Desktop
   #### Effect:
 
   The ave. scripting time decreased by about __0.1 ms__, with a range of __1.3
-  - 1.6__ ms.
+  - 1.6 ms__ .
 
 5. In `document.addEventListener('DOMContentLoaded', function()`, decrease the
   amount of generated animated pizzas from 200 to 50. Even with zooming out the
