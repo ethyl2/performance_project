@@ -472,9 +472,19 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
+// Below is the old code, which appended the pizzas one-by-one.
+//for (var i = 2; i < 100; i++) {
+//  pizzasDiv.appendChild(pizzaElementGenerator(i));
+//}
+
+// Instead, here is a document fragment that is only appended to the pizzasDiv
+// once it is completed:
+
+var pizzasFragment = document.createDocumentFragment();
 for (var i = 2; i < 100; i++) {
-  pizzasDiv.appendChild(pizzaElementGenerator(i));
+  pizzasFragment.appendChild(pizzaElementGenerator(i));
 }
+pizzasDiv.appendChild(pizzasFragment);
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");

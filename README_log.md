@@ -196,3 +196,22 @@ __29__ Desktop
     pizzasDiv.appendChild(pizzaElementGenerator(i));
   }
   ```
+
+11. Optimizing that section further, use a document fragment to add the pizzas
+  that result from `pizzaElementGenerator` in one chunk instead of one-at-a-time.
+
+  ```var pizzasFragment = document.createDocumentFragment();
+  for (var i = 2; i < 100; i++) {
+    pizzasFragment.appendChild(pizzaElementGenerator(i));
+  }
+  pizzasDiv.appendChild(pizzasFragment);
+  ```
+
+  The [MDN article](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment)
+  explains the advantages of document fragments:
+  "Since the document fragment is in memory and not part of the main DOM tree,
+  appending children to it does not cause page reflow (computation of element's
+  position and geometry). Consequently, using document fragments often results
+  in better performance."
+
+  
