@@ -190,7 +190,8 @@ __29__ Desktop
 
   Here is the result:
 
-  ```// This for-loop actually creates and appends all of the pizzas when the page loads
+  ```
+  // This for-loop actually creates and appends all of the pizzas when the page loads
   var pizzasDiv = document.getElementById("randomPizzas");
   for (var i = 2; i < 100; i++) {
     pizzasDiv.appendChild(pizzaElementGenerator(i));
@@ -200,7 +201,8 @@ __29__ Desktop
 11. Optimizing that section further, use a document fragment to add the pizzas
   that result from `pizzaElementGenerator` in one chunk instead of one-at-a-time.
 
-  ```var pizzasFragment = document.createDocumentFragment();
+  ```
+  var pizzasFragment = document.createDocumentFragment();
   for (var i = 2; i < 100; i++) {
     pizzasFragment.appendChild(pizzaElementGenerator(i));
   }
@@ -217,9 +219,11 @@ __29__ Desktop
 12. In `document.addEventListener('DOMContentLoaded', function()` calculate how
   many pizzas are needed, instead of just picking a number like before.
 
-  ```var rows = window.screen.height / s;
+  ```
+  var rows = window.screen.height / s;
   var numPizzas = cols * rows;
   ```
+
   and use the value of numPizzas in the loop:
 
   `for (var i = 0; i < numPizzas; i++) {`
