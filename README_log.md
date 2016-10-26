@@ -180,3 +180,19 @@ __29__ Desktop
   This didn't really make a noticeable effect on the timing, but it is considered
   good coding practice, since `updatePositions()` creates a visible change to the
   page.
+
+9. In `changePizzaSlices`, use the variable 'containers' inside the loop.
+
+10. Take the following line out of its loop, since it would the same every
+  iteration of the loop:
+
+  `var pizzasDiv = document.getElementById("randomPizzas");`
+
+  Here is the result:
+
+  ```// This for-loop actually creates and appends all of the pizzas when the page loads
+  var pizzasDiv = document.getElementById("randomPizzas");
+  for (var i = 2; i < 100; i++) {
+    pizzasDiv.appendChild(pizzaElementGenerator(i));
+  }
+  ```
