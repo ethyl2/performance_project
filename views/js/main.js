@@ -556,10 +556,13 @@ window.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var rows = window.screen.height / s;
+  var numPizzas = cols * rows;
   // It's not necessary to create 200 pizzas. Even zooming out quite a bit, only
-  // 25 pizzas are on a screen at a time. So we can decrease the number to 50.
+  // 25 pizzas are on a screen at a time. So we can decrease the number to
+  // numPizzas.
   // Old line of code: for (var i = 0; i < 200; i++)
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < numPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "img/pizza.png";

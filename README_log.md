@@ -214,4 +214,12 @@ __29__ Desktop
   position and geometry). Consequently, using document fragments often results
   in better performance."
 
-  
+12. In `document.addEventListener('DOMContentLoaded', function()` calculate how
+  many pizzas are needed, instead of just picking a number like before.
+
+  ```var rows = window.screen.height / s;
+  var numPizzas = cols * rows;
+  ```
+  and use the value of numPizzas in the loop:
+
+  `for (var i = 0; i < numPizzas; i++) {`
